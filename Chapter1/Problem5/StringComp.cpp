@@ -1,6 +1,7 @@
 #include<iostream>
 #include<string>
 #include<sstream>
+#include<math.h>
 
 using namespace std;
 
@@ -65,11 +66,13 @@ int CompressedLength(string& str)
 		}	
 		else if(it!=str.begin())
 		{
+			float test = log10(count);
+			int test2 = log10(count);
 			cur = *it;
-			totalCount += count/10 + 2;
+			totalCount += log10(count) + 2;
 			count = 0;
 		}
 	}
-	totalCount += count/10 +2;
+	totalCount += log10(count)+2;
 	return totalCount;
 }
