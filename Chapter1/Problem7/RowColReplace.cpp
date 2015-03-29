@@ -23,7 +23,7 @@ int main (int argc, char* argv[])
 			{
 				image[i*m+j] = 0;
 			}
-			else if(i == 7 && j ==6)
+			else if(i == 3 && j ==6)
 			{
 				image[i*m+j] = 0;
 			}
@@ -40,19 +40,26 @@ int main (int argc, char* argv[])
 }
 void RowColReplace(pixel* image, int n, int m)
 {
+
+	bool colZero [m]; 
+	bool rowZero[n]; 
 	cout << " Original Image: " << endl;
 	int imSize = m*n; 
-	for(int i = 0; i<imSize; i++)
+	for(int i = 0; i<n; i++)
 	{
-		if(i%m== 0)
-			cout << endl;
-		cout << image[i] << " ";
-		if(image[i]<10)
-			cout << " ";
+		cout << endl;
+		int colNum = i*m;
+		rowZero[i] = 0;
+		for(int j = 0; j<m; j++)
+		{
+			cout << image[colNum+j] << " ";
+			if(image[colNum+j] < 10)
+				cout << " ";
+			colZero[j] = 0;
+		}
+		
 	}
-
-	vector<int> colIndex;
-	vector<int> rowIndex;
+	
 	for(int i = 0; i<n; i++)
 	{
 		int rowOffset = i*m;
@@ -60,29 +67,33 @@ void RowColReplace(pixel* image, int n, int m)
 		{
 			if(image[rowOffset+j] == 0)
 			{
-				colIndex.push_back(j);
-				rowIndex.push_back(i);
+				colZero[j] = true;
+				rowZero[i] = true;
 			}
 		}
 	}
+	for(int i = 0; i<m; i++)
+	{
+		if(colZero[i] == 1)
+		{
+			for(int j = 0; j<n; j++)
+			{
+				image[j*m+i] = 0;
+			}
+		}
+	}
+	for(int i = 0; i<n; i++)
+	{
+		if(rowZero[i] == 1)
+		{
+			int colIndex = i*m;
+			for(int j = 0; j<m; j++)
+			{
+				image[colIndex+j] = 0;
+			}
 
-	for(vector<int>::iterator it = colIndex.begin();it!=colIndex.end();it++)
-	{
-		int rowOffset = (*it)*m; 
-		for(int i = 0; i<m; i++)
-		{
-			image[rowOffset+i] = 0;
 		}
 	}
-	for(vector<int>::iterator it = rowIndex.begin();it!=rowIndex.end();it++)
-	{
-		int colIndex = *it;
-		for(int i = 0;i<n;i++)
-		{
-			image[i*m+colIndex] = 0;
-		}
-	}
-	
 	cout << endl << endl << "Rotated Image: " << endl;
 	for(int i = 0; i<imSize; i++)
 	{
