@@ -14,6 +14,7 @@ struct node
 };
 
 void RemoveDupesSet(node* head);
+void RemoveDupesNoSet(node* head);
 void insertNode(node* head, int val);
 void printList(node* head);
 
@@ -27,12 +28,14 @@ int main (int argc, char* argv[])
 	insertNode(head,8);
 	insertNode(head,10);
 	insertNode(head,9);
-	//insertNode(head,111);
+	insertNode(head,111);
 
 	printList(head);
-
+#ifdef NOSET
+	RemoveDupesNoSet(head);
+#else
 	RemoveDupesSet(head);
-	
+#endif	
 	printList(head);
 
 	return 1;
@@ -89,3 +92,34 @@ void RemoveDupesSet(node* head)
 		}
 	}	
 }	
+
+void RemoveDupesNoSet(node* head)
+{
+	node* runner = head->next;
+	node* current = head;
+	node* prev = current;
+	
+	while(current!=NULL)
+	{
+		while(runner!=NULL)
+		{
+			if(runner->data == current->data)
+			{
+				node* temp = runner;
+				prev->next = runner->next;
+				runner = runner->next;
+				delete temp;
+			}	
+			else
+			{
+				if(runner!=NULL)
+					runner = runner->next;
+				prev = prev->next;
+			}
+		}
+		current = current->next;
+		prev = current;
+		if(current!=NULL)
+			runner = current->next;
+	}
+}
