@@ -1,0 +1,4 @@
+RemoveNode:
+	g++ -g RemoveNode.cpp -o RemoveNode 
+clean:
+	del RemoveNode 
