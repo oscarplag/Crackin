@@ -1,4 +1,8 @@
 AddNums:
 	g++ -g AddNums.cpp -o AddNums 
-clean:
-	del AddNums.exe 
+cleanAddNums:
+	rm AddNums
+AddNumsRev:
+	g++ -g AddNumsRev.cpp -o AddNumsRev
+cleanAddNumsRev:
+	rm AddNumsRev
