@@ -1,4 +1,4 @@
-Palindrome:
-	g++ -g Palindrome.cpp -o Palindrome 
+GetMin:
+	g++ -g GetMin.cpp MyStack.cpp -o GetMin 
 clean:
-	rm Palindrome 
+	rm GetMin 
