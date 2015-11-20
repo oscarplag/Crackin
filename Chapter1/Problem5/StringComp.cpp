@@ -54,7 +54,7 @@ string CompressString(string& str)
 
 int CompressedLength(string& str)
 {
-	int count = 0;
+	int count = 1;
 	int totalCount = 0;
 	string::iterator it = str.begin();
 	char cur = *it;
@@ -66,11 +66,9 @@ int CompressedLength(string& str)
 		}	
 		else if(it!=str.begin())
 		{
-			float test = log10(count);
-			int test2 = log10(count);
 			cur = *it;
 			totalCount += log10(count) + 2;
-			count = 0;
+			count = 1;
 		}
 	}
 	totalCount += log10(count)+2;

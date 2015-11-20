@@ -12,11 +12,14 @@ endif
 
 IsPermutation:
 	rm -f CLEAN_PERM
-	g++ -g IsPermutation.cpp -o IsPermutaiton
+	g++ -g IsPermutation.cpp -o IsPermutation
 
 IsPermutationSort:
 	rm -f CLEAN_PERMSORT
 	g++ -g IsPermutationSort.cpp -o IsPermutationSort
+
+IsPerumation2:
+	g++ -g IsPerumation2.cpp -o IsPerumation2
 
 clean:
 	rm -f $(CLEAN_PERM)

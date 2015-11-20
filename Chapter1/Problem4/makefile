@@ -1,5 +1,5 @@
 ReplaceSpace:
-	g++ -g ReplaceSpace.cpp -o ReplaceSpace.exe
+	g++ -g ReplaceSpace.cpp -o ReplaceSpace
 
 clean:
 	rm ReplaceSpace.exe

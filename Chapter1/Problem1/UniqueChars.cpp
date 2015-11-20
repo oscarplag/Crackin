@@ -52,7 +52,7 @@ bool AreCharsUnique(string& str)
 		}
 		else if(temp>=bigStartOffset && temp <=bigEndOffset)
 		{
-			int tempOffset = temp-bigStartOffset + (smallEndOffset - smallStartOffset);
+			int tempOffset = temp-bigStartOffset;// + (smallEndOffset - smallStartOffset);
 			long long bitVal = 1 << tempOffset;
 			if(bitMap&bitVal)
 				return false;

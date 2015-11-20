@@ -1,5 +1,5 @@
 ImageRotation:
-	g++ -g ImageRotation.cpp -o ImageRotation.exe
+	g++ -g ImageRotation.cpp -o ImageRotation
 
 clean:
-	del ImageRotation.exe
+	del ImageRotation

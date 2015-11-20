@@ -1,5 +1,5 @@
 StringComp:
-	g++ -g StringComp.cpp -o StringComp.exe
+	g++ -g StringComp.cpp -o StringComp
 
 clean:
-	rm StringComp.exe
+	rm StringComp
